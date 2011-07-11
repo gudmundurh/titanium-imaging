@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 0.1
+description: Image utilities, such as scaling and controlling JPEG compresion
+author: Gudmundur Hreidarsson
+license: MIT
+copyright: Copyright (c) 2011 Gudmundur Hreidarsson
+
+
+# these should not be edited
+name: imaging
+moduleid: com.spiir.imaging
+guid: b4d2461f-b83d-49d6-b4d2-2650db309cdf
+platform: iphone
+minsdk: 1.6.2
