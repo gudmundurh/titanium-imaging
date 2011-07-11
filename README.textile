@@ -1,0 +1,34 @@
+h2. Imaging module for Titanium on iOS
+
+This module adds native image manipulation methods and control of JPEG compression to Titanium.
+
+It provides a subclass of TiBlob, ComSpiirImage, enriched with new methods and properties.
+
+<pre>
+var blob = Ti.Filesystem.getFile('file.jpg').read();
+var image = imaging.createImageFromBlob(blob);
+</pre>
+
+As images are blobs, they can be used anywhere where Titanium expectes blobs.
+
+h3. Compression quality
+
+By default, Titanium compresses JPEG images using 100% quality, which results in huge files. The Imaging module addresses this:
+
+<pre>
+var blob = Ti.Filesystem.getFile('large.jpg').read();
+
+var image = imaging.createImageFromBlob(blob);
+image.compressionQuality = 0.1;
+
+Titanium.Filesystem.getFile('small.jpg').write(image);
+</pre>	
+
+h3. Scaling an image
+
+The method scaleImage scales an image, retaining proportions:
+
+<pre>
+var image = imaging.createImageFromBlob(blob);
+var scaledImage = image.scaleImage(600, 400);
+</pre>
