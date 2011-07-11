@@ -49,23 +49,38 @@ test('compression quality', function() {
 	assert(modifiedSize < originalSize / 2, 'modified smaller than original');	
 });
 
-test('scale image', function() {
+test('scaleImageDown - scales big image down', function() {
 	var original = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, 'large.jpg');
 	assert(original.exists(), 'original exists');
 	var originalBlob = original.read();
 
-	//assert(original.width > 600, 'original width > 600');
-
 	var image = imaging.createImageFromBlob(originalBlob);
-	var scaledImage = image.scaleImage(800, 400);
+	var scaledImage = image.scaleImageDown(800, 400);
 	
 	log("Scaled size: " + scaledImage.width + "x" + scaledImage.height);
 	
-	var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, 'compressionQuality.jpg');
+	var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, 'scaleImageDown-large.jpg');
 	file.write(scaledImage);
 	
 	assert(scaledImage.width <= 800, 'image width < 800');
 	assert(scaledImage.height <= 400, 'image height < 400');
 	assert(scaledImage.width > 0, 'image width > 0');
 	assert(scaledImage.height > 0, 'image height > 0');
+});
+
+test('scaleImageDown - does not scale if image smaller than requested', function() {
+	var original = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, 'small_300x200.jpg');
+	assert(original.exists(), 'original exists');
+	var originalBlob = original.read();
+
+	var image = imaging.createImageFromBlob(originalBlob);
+	var scaledImage = image.scaleImageDown(400, 400);
+	
+	log("Scaled size: " + scaledImage.width + "x" + scaledImage.height);
+	
+	var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, 'scaleImageDown-small.jpg');
+	file.write(scaledImage);
+	
+	assert(scaledImage.width == 300, 'image width == 300');
+	assert(scaledImage.height == 200, 'image height == 200');
 });

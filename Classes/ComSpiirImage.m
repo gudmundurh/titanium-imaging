@@ -45,7 +45,7 @@
     return UIImageJPEGRepresentation([super image], compressionQuality);
 }
 
-- (id)scaleImage:(id)args
+- (id)scaleImageDown:(id)args
 {
 	[super ensureImageLoaded];
     UIImage *image = super.image;
@@ -53,10 +53,14 @@
 	{
 		ENSURE_ARG_COUNT(args,2);
 		
-        CGSize scaledSize = CGSizeMake([TiUtils intValue:[args objectAtIndex:0]], [TiUtils intValue:[args objectAtIndex:1]]);       
-                
-        // Retain correct proportions
+        CGSize scaledSize = CGSizeMake([TiUtils intValue:[args objectAtIndex:0]], [TiUtils intValue:[args objectAtIndex:1]]);              
         CGSize imageSize = [image size];
+
+        // Don't scale up
+        if (imageSize.width <= scaledSize.width && imageSize.height <= scaledSize.height)
+            return [[[ComSpiirImage alloc] initWithImage:image] autorelease];
+       
+        // Retain correct proportions
 		if (imageSize.width < imageSize.height)
 			scaledSize.width = scaledSize.height * imageSize.width/imageSize.height;
 		else
