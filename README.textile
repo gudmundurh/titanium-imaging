@@ -26,11 +26,11 @@ image.compressionQuality = 0.1;
 Titanium.Filesystem.getFile('small.jpg').write(image);
 </pre>	
 
-h3. Scaling an image
+h3. Scaling an image down
 
-The method scaleImage scales an image, retaining proportions:
+The method scaleImage scales an image down, retaining proportions:
 
 <pre>
 var image = imaging.createImageFromBlob(blob);
-var scaledImage = image.scaleImage(600, 400);
+var scaledImage = image.scaleImageDown(600, 400);
 </pre>
