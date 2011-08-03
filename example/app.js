@@ -84,3 +84,13 @@ test('scaleImageDown - does not scale if image smaller than requested', function
 	assert(scaledImage.width == 300, 'image width == 300');
 	assert(scaledImage.height == 200, 'image height == 200');
 });
+
+test('createImageFromFile - correctly reads image', function() {
+	var path = Titanium.Filesystem.resourcesDirectory + 'small_300x200.jpg';
+	
+	var image = imaging.createImageFromFile(path);
+	
+	assert(image, "image is set");
+	assert(image.width === 300, 'image width == 300');
+	assert(image.height === 200, 'image height == 200');
+});

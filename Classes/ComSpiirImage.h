@@ -14,5 +14,5 @@
 @private
     CGFloat compressionQuality;
 }
-
+- (id)initWithBlob:(TiBlob*)blob;
 @end

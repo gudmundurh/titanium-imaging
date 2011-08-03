@@ -100,4 +100,25 @@
     return [[[ComSpiirImage alloc] initWithBlob:(TiBlob*)blob] autorelease];
 }
 
+-(id)createImageFromFile:(id)args
+{
+    ENSURE_ARG_COUNT(args, 1);
+    id path = [args objectAtIndex:0];
+    
+    if (![path isKindOfClass:[NSString class]])
+    {
+        return nil;
+    }
+    
+    NSURL* url = [NSURL URLWithString:path];
+    if (![url isFileURL]) 
+    {
+        [self throwException:@"Invalid path" subreason:@"Path must be a file URL" location:CODELOCATION];
+    }
+    
+    UIImage* image = [UIImage imageWithContentsOfFile:[url path]];
+    
+    return [[[ComSpiirImage alloc] initWithImage:image] autorelease];
+}
+
 @end
