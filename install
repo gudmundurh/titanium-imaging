@@ -1,0 +1,35 @@
+#!/bin/bash
+
+
+PROJECT=$1
+if test -z "$PROJECT"; then
+    echo "Usage: $0 <project path>"
+    exit -1
+fi
+
+if ! test -f $PROJECT/tiapp.xml; then
+    echo "tiapp.xml not found under $PROJECT"
+    exit -1
+fi
+
+./build.py
+
+moduleid=`cat manifest | grep moduleid | sed -e 's/^.*: //'`
+version=`cat manifest | grep version | sed -e 's/^.*: //'`
+platform=`cat manifest | grep platform | sed -e 's/^.*: //'`
+
+package="$moduleid-$platform-$version.zip"
+
+existing_package_path=$PROJECT/modules/$platform/$moduleid/$version
+
+if test -d $existing_package_path; then
+    echo "Removing existing unzipped package"
+    rm -rf $existing_package_path
+fi
+
+echo "Copying package ZIP to $PROJECT"
+cp $package $PROJECT
+cd $PROJECT
+echo "Extracting package into project"
+unzip $package
+rm $package
