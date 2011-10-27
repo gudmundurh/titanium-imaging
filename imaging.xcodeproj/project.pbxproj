@@ -26,6 +26,12 @@
 		24DD6CFA1134B3F500162E58 /* ComSpiirImagingModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* ComSpiirImagingModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* ComSpiirImagingModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* ComSpiirImagingModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* ComSpiirImagingModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* ComSpiirImagingModuleAssets.m */; };
+		3233E0E614585647007AC6E9 /* UIImage+Alpha.h in Headers */ = {isa = PBXBuildFile; fileRef = 3233E0E014585647007AC6E9 /* UIImage+Alpha.h */; };
+		3233E0E714585647007AC6E9 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233E0E114585647007AC6E9 /* UIImage+Alpha.m */; };
+		3233E0E814585647007AC6E9 /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = 3233E0E214585647007AC6E9 /* UIImage+Resize.h */; };
+		3233E0E914585647007AC6E9 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233E0E314585647007AC6E9 /* UIImage+Resize.m */; };
+		3233E0EA14585647007AC6E9 /* UIImage+RoundedCorner.h in Headers */ = {isa = PBXBuildFile; fileRef = 3233E0E414585647007AC6E9 /* UIImage+RoundedCorner.h */; };
+		3233E0EB14585647007AC6E9 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233E0E514585647007AC6E9 /* UIImage+RoundedCorner.m */; };
 		32357A6D13C47CD400AF153D /* ComSpiirImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357A6B13C47CD400AF153D /* ComSpiirImage.m */; };
 		32357A7013C74EC400AF153D /* ComSpiirImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32357A6F13C74EC400AF153D /* ComSpiirImage.h */; };
 		AA747D9F0F9514B9006C5449 /* ComSpiirImaging_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ComSpiirImaging_Prefix.pch */; };
@@ -48,6 +54,12 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* ComSpiirImagingModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComSpiirImagingModuleAssets.h; path = Classes/ComSpiirImagingModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* ComSpiirImagingModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComSpiirImagingModuleAssets.m; path = Classes/ComSpiirImagingModuleAssets.m; sourceTree = "<group>"; };
+		3233E0E014585647007AC6E9 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		3233E0E114585647007AC6E9 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		3233E0E214585647007AC6E9 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		3233E0E314585647007AC6E9 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		3233E0E414585647007AC6E9 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		3233E0E514585647007AC6E9 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		32357A6B13C47CD400AF153D /* ComSpiirImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComSpiirImage.m; path = Classes/ComSpiirImage.m; sourceTree = "<group>"; };
 		32357A6F13C74EC400AF153D /* ComSpiirImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComSpiirImage.h; path = Classes/ComSpiirImage.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* ComSpiirImaging_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSpiirImaging_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -97,6 +109,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3233E0DF14585647007AC6E9 /* UIImage */,
 				24DE9E0F11C5FE74003F90F6 /* ComSpiirImagingModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* ComSpiirImagingModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* ComSpiirImagingModule.h */,
@@ -105,6 +118,19 @@
 				32357A6B13C47CD400AF153D /* ComSpiirImage.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		3233E0DF14585647007AC6E9 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				3233E0E014585647007AC6E9 /* UIImage+Alpha.h */,
+				3233E0E114585647007AC6E9 /* UIImage+Alpha.m */,
+				3233E0E214585647007AC6E9 /* UIImage+Resize.h */,
+				3233E0E314585647007AC6E9 /* UIImage+Resize.m */,
+				3233E0E414585647007AC6E9 /* UIImage+RoundedCorner.h */,
+				3233E0E514585647007AC6E9 /* UIImage+RoundedCorner.m */,
+			);
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -127,6 +153,9 @@
 				24DD6CF91134B3F500162E58 /* ComSpiirImagingModule.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* ComSpiirImagingModuleAssets.h in Headers */,
 				32357A7013C74EC400AF153D /* ComSpiirImage.h in Headers */,
+				3233E0E614585647007AC6E9 /* UIImage+Alpha.h in Headers */,
+				3233E0E814585647007AC6E9 /* UIImage+Resize.h in Headers */,
+				3233E0EA14585647007AC6E9 /* UIImage+RoundedCorner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +229,9 @@
 				24DD6CFA1134B3F500162E58 /* ComSpiirImagingModule.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* ComSpiirImagingModuleAssets.m in Sources */,
 				32357A6D13C47CD400AF153D /* ComSpiirImage.m in Sources */,
+				3233E0E714585647007AC6E9 /* UIImage+Alpha.m in Sources */,
+				3233E0E914585647007AC6E9 /* UIImage+Resize.m in Sources */,
+				3233E0EB14585647007AC6E9 /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

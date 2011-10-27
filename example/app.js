@@ -94,3 +94,20 @@ test('createImageFromFile - correctly reads image', function() {
 	assert(image.width === 300, 'image width == 300');
 	assert(image.height === 200, 'image height == 200');
 });
+
+test('scaleImageDown - fills if asked to', function() {
+   	var original = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, 'large.jpg');
+	assert(original.exists(), 'original exists');
+	var originalBlob = original.read();
+
+	var image = imaging.createImageFromBlob(originalBlob);
+	var scaledImage = image.scaleImageDown(80, 10, true);
+	
+	log("Scaled size: " + scaledImage.width + "x" + scaledImage.height);
+	
+	var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, 'scaleImageDownFill-large.jpg');
+	file.write(scaledImage);
+	
+	assert(scaledImage.width == 80, 'image width');
+	assert(scaledImage.height == 10, 'image height');
+});

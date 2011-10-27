@@ -55,18 +55,36 @@
 		
         CGSize scaledSize = CGSizeMake([TiUtils intValue:[args objectAtIndex:0]], [TiUtils intValue:[args objectAtIndex:1]]);              
         CGSize imageSize = [image size];
+        BOOL crop = [args count] == 3 && [TiUtils boolValue:[args objectAtIndex:2]];
 
         // Don't scale up
         if (imageSize.width <= scaledSize.width && imageSize.height <= scaledSize.height)
             return [[[ComSpiirImage alloc] initWithImage:image] autorelease];
-       
-        // Retain correct proportions
-		if (imageSize.width < imageSize.height)
-			scaledSize.width = scaledSize.height * imageSize.width/imageSize.height;
-		else
-			scaledSize.height = scaledSize.width * imageSize.height/imageSize.width;	
         
-		return [[[ComSpiirImage alloc] initWithImage:[UIImageResize resizedImage:scaledSize interpolationQuality:kCGInterpolationHigh image:image hires:NO]] autorelease];
+        if (crop) {
+            // Crop
+            CGFloat croppedWidth = imageSize.width;
+            CGFloat croppedHeight = scaledSize.height/scaledSize.width * imageSize.width;
+            
+            if (croppedHeight > imageSize.height) {
+                croppedHeight = imageSize.height;
+                croppedWidth = scaledSize.width/scaledSize.height * imageSize.height;
+            }
+            
+            image = [image croppedImage:CGRectMake(imageSize.width/2 - croppedWidth/2, imageSize.height/2 - croppedHeight/2, croppedWidth, croppedHeight)];
+        } else {
+            // Retain correct proportions
+            if (imageSize.width < imageSize.height)
+                scaledSize.width = scaledSize.height * imageSize.width/imageSize.height;
+            else
+                scaledSize.height = scaledSize.width * imageSize.height/imageSize.width;	
+        }
+        
+        NSLog(@"scaleImageDown: Scaling to %fx%f. Crop: %i", scaledSize.width, scaledSize.height, crop);
+           
+        UIImage* scaledImage = [image resizedImage:scaledSize interpolationQuality:kCGInterpolationHigh];
+                        
+		return [[[ComSpiirImage alloc] initWithImage:scaledImage] autorelease];
 	}
 	return nil;
 }
