@@ -1,3 +1,5 @@
+**2013-07-10: The module is not in active development &ndash; but as far as I have heard, it works with version 3.3.1 and older of the SDK. Make sure to configure it before building (see below).**
+
 h2. Imaging module for Titanium on iOS
 
 This module adds native image manipulation methods and control of JPEG compression to Titanium.
@@ -13,7 +15,11 @@ As images are blobs, they can be used anywhere where Titanium expectes blobs.
 
 Below are simple examples of use -- check out example/app.js for more code.
 
-*NB!* The API is under development -- and is bound to change. Comments/forks/requests are more than welcome!
+h2. Configuration
+
+To get the module to build, you most likely need to adjust <code>TITANIUM_SDK_VERSION</code> and possibly also <code>TITANIUM_SDK</code> in <code>titanium.xcconfig</code>, to reflect the SDK you are building against.  
+
+h2. Examples 
 
 h3. Compression quality
 
